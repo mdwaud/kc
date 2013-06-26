@@ -11,8 +11,10 @@ function pig_latinize($raw_word) {
     foreach(str_split($word) as $letter) {
         if(in_array($letter, $VOWELS)) {
             if($index > 0) {
+                // first letter is not a vowel
                 return substr($word, $index, strlen($word)) . substr($word, 0, $index) . "ay";
             } else {
+                // first letter is a vowel
                 return $word . "yay";
             }
         }
@@ -25,5 +27,6 @@ function pig_latinize($raw_word) {
 assert('pig_latinize("happy") == "appyhay"');
 assert('pig_latinize("duck") == "uckday"');
 assert('pig_latinize("egg") == "eggyay"');
+assert('pig_latinize("thbbbt") == "thbbbtay"');
 
 ?>
