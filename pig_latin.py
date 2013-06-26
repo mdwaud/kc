@@ -13,11 +13,13 @@ def pig_latinize(word):
     'my'
     >>> pig_latinize("amber")
     'amberay'
+    >>> pig_latinize("crevice")
+    'evicecray'
     """
     # handle some simple base cases
     if len(word) < 3 or word.upper() in IGNORE_LIST:
         return word
-    # cehck for the first vowel
+    # check for the first vowel
     for index, letter in enumerate(word):
         if letter.upper() in VOWELS:
             return word[index:] + word[:index] + "ay"
